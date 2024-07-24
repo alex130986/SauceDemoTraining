@@ -7,13 +7,13 @@ namespace SauceDemoTraining.LogInTests
     public class FailedLogInTest
     {
         private IWebDriver _driver;
-        public DataForTests _loginPage;
+        public BasePage _loginPage;
 
         [SetUp]
         public void SetUp()
         {
             _driver = new EdgeDriver();
-            _loginPage = new DataForTests(_driver);
+            _loginPage = new BasePage(_driver);
             _driver.Manage().Window.Maximize();
         }
 

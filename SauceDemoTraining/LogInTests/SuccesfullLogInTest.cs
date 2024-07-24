@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium.Edge;
 using OpenQA.Selenium;
+using NUnit.Framework;
 using SauceDemoTraining;
 
 namespace SauceDemoLoginTests.LogInTests
@@ -8,13 +9,13 @@ namespace SauceDemoLoginTests.LogInTests
     public class SuccesfullLogInTest
     {
         private IWebDriver _driver;
-        public DataForTests _loginPage;
+        public BasePage _loginPage;
 
         [SetUp]
         public void SetUp()
         {
             _driver = new EdgeDriver();
-            _loginPage = new DataForTests(_driver);
+            _loginPage = new BasePage(_driver);
             _driver.Manage().Window.Maximize();
         }
 
@@ -32,10 +33,10 @@ namespace SauceDemoLoginTests.LogInTests
 
             // Act
             _loginPage.NavigateToMainPage();
-            _loginPage.DataForSuccesfullLogIn(userData);
+            _loginPage.DataForSuccessfulLogIn(userData); // Исправлено имя метода
 
             // Assert
-            Assert.That(_loginPage.IsLoggedIn, Is.True);
+            Assert.That(_loginPage.IsLoggedIn(), Is.True); // Исправлено вызов метода
         }
     }
 }

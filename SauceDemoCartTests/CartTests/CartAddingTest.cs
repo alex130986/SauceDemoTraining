@@ -9,13 +9,13 @@ namespace SauceDemoCartTests.CartTests
     public class CartAddingTest
     {
         public IWebDriver _driver;
-        public DataForTests _loggedInUser;
+        public BasePage _loggedInUser;
 
         [SetUp]
         public void SetUp()
         {
             _driver = new EdgeDriver();
-            _loggedInUser = new DataForTests(_driver);
+            _loggedInUser = new BasePage(_driver);
             _driver.Manage().Window.Maximize();
         }
 
@@ -33,7 +33,7 @@ namespace SauceDemoCartTests.CartTests
 
             // Act
             _loggedInUser.NavigateToMainPage();
-            _loggedInUser.DataForSuccesfullLogIn(userData);
+            _loggedInUser.DataForSuccessfulLogIn(userData);
             _loggedInUser.DataForCartAdding();
 
             // Assert
